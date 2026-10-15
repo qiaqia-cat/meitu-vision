@@ -4,6 +4,8 @@ import { marketProfiles, platformTemplates } from '@/data/templates'
 import type {
   AudiencePersona,
   BusinessGoal,
+  ComplianceFinding,
+  ComplianceReport,
   CopyStrategy,
   DesignLayer,
   GeneratedCopy,
@@ -16,6 +18,8 @@ import type {
 import { generateCopy, generateCopyVariants, generateLLMCopyVariants } from '@/utils/prompt'
 import { analyzeImage, findQuietZones } from '@/utils/imageAnalysis'
 import { analyzeImageWithVision, isLLMConfigured, isVisionConfigured } from '@/services/llm'
+import { applyFix, auditCopy, scanLocal, scoreFindings } from '@/services/compliance'
+import type { ComplianceContext } from '@/services/compliance'
 import { getDesigns, saveDesign } from '@/utils/idb'
 import { i18n } from '@/i18n'
 
@@ -67,9 +71,26 @@ export const useEditorStore = defineStore('editor', () => {
   const copyLoading = ref(false)
   const copyMode = ref<'idle' | 'llm' | 'offline'>('idle')
 
+  // --- Compliance guard ----------------------------------------------------
+  const complianceInput = ref('')
+  const complianceReport = ref<ComplianceReport | null>(null)
+  const complianceBusy = ref(false)
+  const complianceNote = ref<'idle' | 'no-key' | 'ai-unavailable'>('idle')
+  /** Per-variant report, index-aligned with copyVariants. */
+  const variantReports = ref<ComplianceReport[]>([])
+
   const platform = computed(() => platformTemplates.find((item) => item.id === platformId.value) ?? platformTemplates[0])
   const market = computed(() => marketProfiles.find((item) => item.id === marketId.value) ?? marketProfiles[0])
   const selectedLayer = computed(() => layers.value.find((layer) => layer.id === selectedLayerId.value) ?? null)
+
+  /** Everything the compliance engine needs to pick the right rule set. */
+  const complianceContext = computed<ComplianceContext>(() => ({
+    platformId: platformId.value,
+    marketId: marketId.value,
+    platformName: t(`platforms.${platformId.value}.name`),
+    marketName: t(`markets.${marketId.value}.name`),
+    category: copyStrategy.value.category
+  }))
   // stageScale is a writable ref so App.vue can drive it from the actual
   // canvas-wrap size (and a ResizeObserver). The 0.4 default is a sane
   // fallback before the first measurement.
@@ -204,7 +225,131 @@ export const useEditorStore = defineStore('editor', () => {
     generatedCopy.value = copy
     applyCopyToLayers(copy)
     copyLoading.value = false
+    // Auto-scan the fresh variants with the local rule library only — it is
+    // instant and free, and the manual panel is where the AI review happens.
+    refreshVariantReports()
     return copy.prompt
+  }
+
+  // --- Compliance guard ----------------------------------------------------
+
+  type VariantField = 'headline' | 'caption' | 'cta' | 'hashtag'
+
+  interface VariantSegment {
+    field: VariantField
+    text: string
+    start: number
+  }
+
+  function variantSegments(variant: GeneratedCopy): VariantSegment[] {
+    const parts: Array<{ field: VariantField; text: string }> = [
+      { field: 'headline', text: variant.headline },
+      { field: 'caption', text: variant.caption },
+      { field: 'cta', text: variant.cta },
+      { field: 'hashtag', text: variant.hashtags.join(' ') }
+    ]
+
+    let cursor = 0
+    return parts.map((part) => {
+      const segment = { ...part, start: cursor }
+      cursor += part.text.length + 1
+      return segment
+    })
+  }
+
+  function variantText(variant: GeneratedCopy): string {
+    return variantSegments(variant)
+      .map((segment) => segment.text)
+      .join('\n')
+  }
+
+  /**
+   * Scan every field of a variant separately so a finding knows which field to
+   * patch, then rebase the offsets onto the combined text.
+   */
+  function scanVariant(variant: GeneratedCopy, context: ComplianceContext): ComplianceFinding[] {
+    const findings: ComplianceFinding[] = []
+
+    for (const segment of variantSegments(variant)) {
+      if (!segment.text.trim()) continue
+      for (const hit of scanLocal(segment.text, context)) {
+        findings.push({
+          ...hit,
+          id: `${hit.id}:${segment.field}`,
+          field: segment.field,
+          start: segment.start + hit.start,
+          end: segment.start + hit.end
+        })
+      }
+    }
+
+    return findings
+  }
+
+  function refreshVariantReports() {
+    const context = complianceContext.value
+    variantReports.value = copyVariants.value.map((variant) => {
+      const findings = scanVariant(variant, context)
+      const { score, level } = scoreFindings(findings)
+      return { text: variantText(variant), score, level, findings, mode: 'lexicon' as const }
+    })
+  }
+
+  /** Full manual pass: rules first, then DeepSeek semantic review. */
+  async function runComplianceCheck() {
+    const text = complianceInput.value.trim()
+    if (!text) {
+      complianceReport.value = null
+      complianceNote.value = 'idle'
+      return
+    }
+
+    complianceBusy.value = true
+    try {
+      const report = await auditCopy(complianceInput.value, complianceContext.value, { useAI: true })
+      complianceReport.value = report
+      complianceNote.value = report.mode === 'ai' ? 'idle' : report.note === 'no-key' ? 'no-key' : 'ai-unavailable'
+    } finally {
+      complianceBusy.value = false
+    }
+  }
+
+  /** Drop the current variant's copy into the manual check box. */
+  function fillFromCurrentCopy() {
+    if (!generatedCopy.value) return
+    complianceInput.value = variantText(generatedCopy.value)
+    void runComplianceCheck()
+  }
+
+  function applyComplianceFix(finding: ComplianceFinding) {
+    if (!complianceReport.value) return
+    complianceInput.value = applyFix(complianceReport.value.text, finding)
+    void runComplianceCheck()
+  }
+
+  /** Patch one field of a variant, then push it back onto the canvas. */
+  function applyVariantFix(index: number, finding: ComplianceFinding) {
+    const variant = copyVariants.value[index]
+    if (!variant) return
+    const segments = variantSegments(variant)
+    const field = finding.field ?? 'headline'
+
+    if (field === 'hashtag') {
+      variant.hashtags = variant.hashtags.map((tag) => (tag === finding.term ? finding.suggestion : tag))
+    } else {
+      const segment = segments.find((item) => item.field === field)
+      if (!segment) return
+      variant[field] = applyFix(segment.text, {
+        ...finding,
+        start: finding.start - segment.start,
+        end: finding.end - segment.start
+      })
+    }
+
+    copyVariants.value = [...copyVariants.value]
+    generatedCopy.value = variant
+    applyCopyToLayers(variant)
+    refreshVariantReports()
   }
 
   function applyCopyVariant(copy: GeneratedCopy) {
@@ -267,6 +412,12 @@ export const useEditorStore = defineStore('editor', () => {
     copyStrategy,
     copyLoading,
     copyMode,
+    complianceInput,
+    complianceReport,
+    complianceBusy,
+    complianceNote,
+    variantReports,
+    complianceContext,
     platform,
     market,
     selectedLayer,
@@ -283,6 +434,11 @@ export const useEditorStore = defineStore('editor', () => {
     deleteLayer,
     applyAiCopy,
     applyCopyVariant,
+    runComplianceCheck,
+    refreshVariantReports,
+    fillFromCurrentCopy,
+    applyComplianceFix,
+    applyVariantFix,
     persistDesign,
     loadDesigns,
     restoreDesign

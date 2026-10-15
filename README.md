@@ -42,6 +42,17 @@ Copy generation is driven by real large models, not canned templates.
 - **Graceful degradation.** No key / network / timeout / malformed JSON all fall back to the local rule engine, so the page never breaks. The UI shows an "AI mode / offline rules" badge so the state is always visible.
 - **Key safety.** API keys are injected only by the Vite dev proxy (`/llm`, `/vision`) and never reach the browser bundle or the repository.
 
+## Compliance guard
+
+Copy is screened for risky wording before it can leave the studio.
+
+- **Layer 1 — local rule library.** Regex rules covering the Chinese Advertising Law (absolute terms, medical efficacy, earnings promises), FTC / EU 655-2013 claim rules, Japan 薬機法 wording, and platform-specific bans (Etsy / Shopee IP terms, TikTok engagement bait, off-platform contact). Runs offline, zero latency, no key required.
+- **Layer 2 — DeepSeek semantic review.** Catches what a word list cannot: implied efficacy, unsubstantiated comparisons, and promises that only read as safe in isolation. Results are cached per copy + market + platform.
+- **Merge & false-positive control.** Semantic hits that overlap or repeat a lexical hit are dropped, and context exceptions keep 第一天 / 第一次 from being flagged as absolute claims.
+- **One-click fix.** Every finding carries replacement wording — applying it rewrites the copy, updates the canvas layer and re-scans.
+- **Export gate.** Opening multi-platform export reports how many high-risk terms remain before anything is rendered.
+- **Report export.** Download a TXT compliance report for the checked copy.
+
 ## Run Locally
 
 ```bash
@@ -55,4 +66,6 @@ npm run dev
 
 Built a Vue3 + TypeScript overseas social growth workspace for creators and cross-border sellers. Implemented image upload, lightweight visual analysis, commercial strategy selection, free-text product category with AI inference, market/platform copy playbooks, scored copy variants, multi-platform canvas templates, draggable text/sticker layers, IndexedDB history, mobile registration, custom avatars, and PNG export.
 
-Integrated real LLM capability: DeepSeek `deepseek-chat` for platform-native copy generation in JSON mode, and Zhipu GLM-4V for multimodal image understanding feeding the copy brief. Designed a layered prompt system (role prompt + design brief + image insight + platform/market playbook injection + strict JSON output contract with length limits and self-scored confidence), plus a fallback rule engine and error taxonomy so the UI degrades gracefully without keys or on timeout. API keys stay in the dev proxy and never enter the bundle. The project focuses on global content production and conversion-oriented localization rather than basic image beautification.
+Integrated real LLM capability: DeepSeek `deepseek-chat` for platform-native copy generation in JSON mode, and Zhipu GLM-4V for multimodal image understanding feeding the copy brief. Designed a layered prompt system (role prompt + design brief + image insight + platform/market playbook injection + strict JSON output contract with length limits and self-scored confidence), plus a fallback rule engine and error taxonomy so the UI degrades gracefully without keys or on timeout. API keys stay in the dev proxy and never enter the bundle.
+
+Built a two-layer compliance guard for risky wording: an offline regex rule library (China Advertising Law, FTC / EU 655-2013, Japan 薬機法, and per-platform bans) that runs with zero latency and no key, plus a DeepSeek semantic review that catches implied efficacy and unsubstantiated promises, with result merging, per-copy caching and context-based false-positive control. Findings carry offsets for inline highlighting, one-click replacement that rewrites the copy and canvas layer, an export gate, and downloadable reports. The project focuses on global content production and conversion-oriented localization rather than basic image beautification.

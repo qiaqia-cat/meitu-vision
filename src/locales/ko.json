@@ -49,6 +49,41 @@
   "copy": {
     "fallbackReason": "오프라인 템플릿 초안입니다. .env.local에 DeepSeek 키를 설정하면 AI 카피를 사용할 수 있어요."
   },
+  "compliance": {
+    "section": "컴플라이언스 검사",
+    "inputPlaceholder": "검사할 문구를 붙여넣거나 입력하세요…",
+    "check": "문구 검사",
+    "checking": "검사 중…",
+    "clear": "지우기",
+    "useCurrent": "현재 문구 사용",
+    "findingCount": "위험 {count}건 발견",
+    "empty": "위험 표현 없음",
+    "safe": "안전",
+    "caution": "검토 필요",
+    "risky": "고위험",
+    "modeAI": "AI 심사",
+    "modeLexicon": "규칙 사전",
+    "noKeyNote": ".env.local에 DeepSeek 키를 설정하면 AI 의미 심사를 사용할 수 있습니다.",
+    "aiUnavailableNote": "AI 의미 심사를 사용할 수 없어 규칙 사전 결과만 표시합니다.",
+    "fix": "교체",
+    "export": "리포트 내보내기",
+    "variantRisk": "변형별 위험",
+    "field": {
+      "headline": "헤드라인",
+      "caption": "보조 문구",
+      "cta": "CTA",
+      "hashtag": "해시태그"
+    },
+    "kind": {
+      "legal": "법규",
+      "platform": "플랫폼 정책",
+      "claim": "근거 없는 표현",
+      "sensitive": "제한 카테고리",
+      "disclosure": "광고 고지"
+    },
+    "exportBlockTitle": "이 디자인에는 고위험 표현이 {count}건 남아 있습니다.",
+    "exportBlockHint": "게시 전에 수정하지 않으면 삭제나 계정 제재를 받을 수 있습니다."
+  },
   "section": {
     "platform": "플랫폼",
     "market": "마켓",
@@ -115,26 +150,74 @@
     "label": "프롬프트"
   },
   "platforms": {
-    "tiktok": { "name": "TikTok 커버", "channel": "숏폼 영상" },
-    "instagramPost": { "name": "Instagram 포스트", "channel": "피드" },
-    "instagramStory": { "name": "Instagram 스토리", "channel": "스토리" },
-    "youtubeShorts": { "name": "YouTube Shorts", "channel": "Shorts" },
-    "pinterest": { "name": "Pinterest 핀", "channel": "디스커버리" },
-    "shopee": { "name": "Shopee 상품", "channel": "커머스" },
-    "etsy": { "name": "Etsy 리스팅", "channel": "커머스" }
+    "tiktok": {
+      "name": "TikTok 커버",
+      "channel": "숏폼 영상"
+    },
+    "instagramPost": {
+      "name": "Instagram 포스트",
+      "channel": "피드"
+    },
+    "instagramStory": {
+      "name": "Instagram 스토리",
+      "channel": "스토리"
+    },
+    "youtubeShorts": {
+      "name": "YouTube Shorts",
+      "channel": "Shorts"
+    },
+    "pinterest": {
+      "name": "Pinterest 핀",
+      "channel": "디스커버리"
+    },
+    "shopee": {
+      "name": "Shopee 상품",
+      "channel": "커머스"
+    },
+    "etsy": {
+      "name": "Etsy 리스팅",
+      "channel": "커머스"
+    }
   },
   "markets": {
-    "northAmerica": { "name": "북미", "tone": "깔끔, 직관적, 효용 중심" },
-    "latinAmerica": { "name": "라틴 아메리카", "tone": "따뜻함, 활기, 소셜" },
-    "japanKorea": { "name": "일본 / 한국", "tone": "부드러움, 정제됨, 미니멀" },
-    "southeastAsia": { "name": "동남아시아", "tone": "밝고 활기찬, 가성비" },
-    "europe": { "name": "유럽", "tone": "에디토리얼, 절제, 품질 중심" }
+    "northAmerica": {
+      "name": "북미",
+      "tone": "깔끔, 직관적, 효용 중심"
+    },
+    "latinAmerica": {
+      "name": "라틴 아메리카",
+      "tone": "따뜻함, 활기, 소셜"
+    },
+    "japanKorea": {
+      "name": "일본 / 한국",
+      "tone": "부드러움, 정제됨, 미니멀"
+    },
+    "southeastAsia": {
+      "name": "동남아시아",
+      "tone": "밝고 활기찬, 가성비"
+    },
+    "europe": {
+      "name": "유럽",
+      "tone": "에디토리얼, 절제, 품질 중심"
+    }
   },
   "goals": {
-    "awareness": { "name": "브랜드 인지도", "metric": "도달 / 저장" },
-    "engagement": { "name": "소셜 인게이지먼트", "metric": "댓글 / 공유" },
-    "conversion": { "name": "전환", "metric": "클릭 / 주문" },
-    "retention": { "name": "리텐션", "metric": "재방문 / 충성도" }
+    "awareness": {
+      "name": "브랜드 인지도",
+      "metric": "도달 / 저장"
+    },
+    "engagement": {
+      "name": "소셜 인게이지먼트",
+      "metric": "댓글 / 공유"
+    },
+    "conversion": {
+      "name": "전환",
+      "metric": "클릭 / 주문"
+    },
+    "retention": {
+      "name": "리텐션",
+      "metric": "재방문 / 충성도"
+    }
   },
   "personas": {
     "creator": "콘텐츠 크리에이터",

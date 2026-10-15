@@ -49,6 +49,41 @@
   "copy": {
     "fallbackReason": "オフラインのテンプレート初稿です。.env.local に DeepSeek キーを設定すると AI コピーが使えます。"
   },
+  "compliance": {
+    "section": "コンプライアンスチェック",
+    "inputPlaceholder": "チェックしたいコピーを貼り付け、または入力…",
+    "check": "チェックする",
+    "checking": "チェック中…",
+    "clear": "クリア",
+    "useCurrent": "現在のコピーを使う",
+    "findingCount": "{count} 件のリスクを検出",
+    "empty": "リスク表現は見つかりませんでした",
+    "safe": "安全",
+    "caution": "要確認",
+    "risky": "高リスク",
+    "modeAI": "AI 審査",
+    "modeLexicon": "ルール辞書",
+    "noKeyNote": ".env.local に DeepSeek キーを設定すると AI 意味審査が有効になります。",
+    "aiUnavailableNote": "AI 意味審査を利用できないため、ルール辞書の結果のみ表示しています。",
+    "fix": "置換",
+    "export": "レポート出力",
+    "variantRisk": "バリアント別リスク",
+    "field": {
+      "headline": "見出し",
+      "caption": "サブコピー",
+      "cta": "CTA",
+      "hashtag": "ハッシュタグ"
+    },
+    "kind": {
+      "legal": "法規制",
+      "platform": "プラットフォーム規約",
+      "claim": "根拠のない表現",
+      "sensitive": "制限カテゴリ",
+      "disclosure": "広告表示"
+    },
+    "exportBlockTitle": "このデザインには高リスク表現が {count} 件残っています。",
+    "exportBlockHint": "公開前に修正しないと、削除やアカウント停止の対象になります。"
+  },
   "section": {
     "platform": "プラットフォーム",
     "market": "マーケット",
@@ -115,26 +150,74 @@
     "label": "プロンプト"
   },
   "platforms": {
-    "tiktok": { "name": "TikTok カバー", "channel": "ショート動画" },
-    "instagramPost": { "name": "Instagram ポスト", "channel": "フィード" },
-    "instagramStory": { "name": "Instagram ストーリー", "channel": "ストーリー" },
-    "youtubeShorts": { "name": "YouTube Shorts", "channel": "Shorts" },
-    "pinterest": { "name": "Pinterest ピン", "channel": "ディスカバリー" },
-    "shopee": { "name": "Shopee 商品", "channel": "コマース" },
-    "etsy": { "name": "Etsy リスティング", "channel": "コマース" }
+    "tiktok": {
+      "name": "TikTok カバー",
+      "channel": "ショート動画"
+    },
+    "instagramPost": {
+      "name": "Instagram ポスト",
+      "channel": "フィード"
+    },
+    "instagramStory": {
+      "name": "Instagram ストーリー",
+      "channel": "ストーリー"
+    },
+    "youtubeShorts": {
+      "name": "YouTube Shorts",
+      "channel": "Shorts"
+    },
+    "pinterest": {
+      "name": "Pinterest ピン",
+      "channel": "ディスカバリー"
+    },
+    "shopee": {
+      "name": "Shopee 商品",
+      "channel": "コマース"
+    },
+    "etsy": {
+      "name": "Etsy リスティング",
+      "channel": "コマース"
+    }
   },
   "markets": {
-    "northAmerica": { "name": "北米", "tone": "クリーン・直接・ベネフィット重視" },
-    "latinAmerica": { "name": "ラテンアメリカ", "tone": "あたたかい・元気・ソーシャル" },
-    "japanKorea": { "name": "日本 / 韓国", "tone": "やわらか・上質・ミニマル" },
-    "southeastAsia": { "name": "東南アジア", "tone": "明るい・にぎやか・お得感" },
-    "europe": { "name": "ヨーロッパ", "tone": "エディトリアル・控えめ・品質重視" }
+    "northAmerica": {
+      "name": "北米",
+      "tone": "クリーン・直接・ベネフィット重視"
+    },
+    "latinAmerica": {
+      "name": "ラテンアメリカ",
+      "tone": "あたたかい・元気・ソーシャル"
+    },
+    "japanKorea": {
+      "name": "日本 / 韓国",
+      "tone": "やわらか・上質・ミニマル"
+    },
+    "southeastAsia": {
+      "name": "東南アジア",
+      "tone": "明るい・にぎやか・お得感"
+    },
+    "europe": {
+      "name": "ヨーロッパ",
+      "tone": "エディトリアル・控えめ・品質重視"
+    }
   },
   "goals": {
-    "awareness": { "name": "ブランド認知", "metric": "リーチ / 保存" },
-    "engagement": { "name": "エンゲージメント", "metric": "コメント / シェア" },
-    "conversion": { "name": "コンバージョン", "metric": "クリック / 注文" },
-    "retention": { "name": "リピーター育成", "metric": "継続利用 / ロイヤリティ" }
+    "awareness": {
+      "name": "ブランド認知",
+      "metric": "リーチ / 保存"
+    },
+    "engagement": {
+      "name": "エンゲージメント",
+      "metric": "コメント / シェア"
+    },
+    "conversion": {
+      "name": "コンバージョン",
+      "metric": "クリック / 注文"
+    },
+    "retention": {
+      "name": "リピーター育成",
+      "metric": "継続利用 / ロイヤリティ"
+    }
   },
   "personas": {
     "creator": "コンテンツクリエイター",

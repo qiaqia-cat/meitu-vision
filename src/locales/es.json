@@ -49,6 +49,41 @@
   "copy": {
     "fallbackReason": "Borrador sin conexión con la plantilla de la plataforma. Añade una clave de DeepSeek en .env.local para copy con IA."
   },
+  "compliance": {
+    "section": "Control de cumplimiento",
+    "inputPlaceholder": "Pega o escribe el texto que quieres revisar...",
+    "check": "Revisar texto",
+    "checking": "Revisando...",
+    "clear": "Limpiar",
+    "useCurrent": "Usar el texto actual",
+    "findingCount": "{count} problemas encontrados",
+    "empty": "Sin palabras de riesgo",
+    "safe": "Seguro",
+    "caution": "Revisar",
+    "risky": "Alto riesgo",
+    "modeAI": "Revisión IA",
+    "modeLexicon": "Biblioteca de reglas",
+    "noKeyNote": "Añade una clave de DeepSeek en .env.local para activar la revisión semántica.",
+    "aiUnavailableNote": "Revisión semántica no disponible, solo se muestran los resultados de la biblioteca de reglas.",
+    "fix": "Reemplazar",
+    "export": "Exportar informe",
+    "variantRisk": "Riesgo por variante",
+    "field": {
+      "headline": "Titular",
+      "caption": "Descripción",
+      "cta": "Llamada a la acción",
+      "hashtag": "Hashtags"
+    },
+    "kind": {
+      "legal": "Normativa",
+      "platform": "Política de plataforma",
+      "claim": "Afirmación sin respaldo",
+      "sensitive": "Restringido",
+      "disclosure": "Divulgación"
+    },
+    "exportBlockTitle": "Este diseño todavía tiene {count} expresiones de alto riesgo.",
+    "exportBlockHint": "Corrígelas antes de publicar para evitar retiradas o sanciones en la cuenta."
+  },
   "section": {
     "platform": "Plataforma",
     "market": "Mercado",
@@ -115,26 +150,74 @@
     "label": "Prompt"
   },
   "platforms": {
-    "tiktok": { "name": "Portada TikTok", "channel": "Video corto" },
-    "instagramPost": { "name": "Post de Instagram", "channel": "Feed" },
-    "instagramStory": { "name": "Story de Instagram", "channel": "Story" },
-    "youtubeShorts": { "name": "YouTube Shorts", "channel": "Shorts" },
-    "pinterest": { "name": "Pin de Pinterest", "channel": "Descubrir" },
-    "shopee": { "name": "Producto Shopee", "channel": "Comercio" },
-    "etsy": { "name": "Listado Etsy", "channel": "Comercio" }
+    "tiktok": {
+      "name": "Portada TikTok",
+      "channel": "Video corto"
+    },
+    "instagramPost": {
+      "name": "Post de Instagram",
+      "channel": "Feed"
+    },
+    "instagramStory": {
+      "name": "Story de Instagram",
+      "channel": "Story"
+    },
+    "youtubeShorts": {
+      "name": "YouTube Shorts",
+      "channel": "Shorts"
+    },
+    "pinterest": {
+      "name": "Pin de Pinterest",
+      "channel": "Descubrir"
+    },
+    "shopee": {
+      "name": "Producto Shopee",
+      "channel": "Comercio"
+    },
+    "etsy": {
+      "name": "Listado Etsy",
+      "channel": "Comercio"
+    }
   },
   "markets": {
-    "northAmerica": { "name": "Norteamérica", "tone": "claro, directo, orientado al beneficio" },
-    "latinAmerica": { "name": "Latinoamérica", "tone": "cálido, enérgico, social" },
-    "japanKorea": { "name": "Japón / Corea", "tone": "suave, pulido, minimalista" },
-    "southeastAsia": { "name": "Sudeste asiático", "tone": "brillante, animado, de oferta" },
-    "europe": { "name": "Europa", "tone": "editorial, contenido, enfocado a calidad" }
+    "northAmerica": {
+      "name": "Norteamérica",
+      "tone": "claro, directo, orientado al beneficio"
+    },
+    "latinAmerica": {
+      "name": "Latinoamérica",
+      "tone": "cálido, enérgico, social"
+    },
+    "japanKorea": {
+      "name": "Japón / Corea",
+      "tone": "suave, pulido, minimalista"
+    },
+    "southeastAsia": {
+      "name": "Sudeste asiático",
+      "tone": "brillante, animado, de oferta"
+    },
+    "europe": {
+      "name": "Europa",
+      "tone": "editorial, contenido, enfocado a calidad"
+    }
   },
   "goals": {
-    "awareness": { "name": "Reconocimiento", "metric": "alcance / guardados" },
-    "engagement": { "name": "Engagement", "metric": "comentarios / compartidos" },
-    "conversion": { "name": "Conversión", "metric": "clics / pedidos" },
-    "retention": { "name": "Retención", "metric": "uso recurrente / lealtad" }
+    "awareness": {
+      "name": "Reconocimiento",
+      "metric": "alcance / guardados"
+    },
+    "engagement": {
+      "name": "Engagement",
+      "metric": "comentarios / compartidos"
+    },
+    "conversion": {
+      "name": "Conversión",
+      "metric": "clics / pedidos"
+    },
+    "retention": {
+      "name": "Retención",
+      "metric": "uso recurrente / lealtad"
+    }
   },
   "personas": {
     "creator": "Creador de contenido",

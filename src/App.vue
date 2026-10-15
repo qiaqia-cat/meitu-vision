@@ -13,6 +13,7 @@ import { getSessionUser, logoutUser } from '@/utils/auth'
 import AuthPanel from '@/components/AuthPanel.vue'
 import IntroScene from '@/components/IntroScene.vue'
 import MultiPlatformExport from '@/components/MultiPlatformExport.vue'
+import CompliancePanel from '@/components/CompliancePanel.vue'
 
 const { t, locale } = useI18n()
 
@@ -972,6 +973,8 @@ void SUPPORTED_LOCALES
           <p v-if="!copyVariants.length" class="muted">{{ t('empty.noCopy') }}</p>
         </div>
       </section>
+
+      <CompliancePanel />
 
       <section class="panel-section">
         <h2>{{ t('section.layers') }}</h2>

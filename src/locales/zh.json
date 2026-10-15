@@ -49,6 +49,41 @@
   "copy": {
     "fallbackReason": "离线初稿（按平台模板生成）。在 .env.local 配置 DeepSeek key 后可获得更聪明的 AI 文案。"
   },
+  "compliance": {
+    "section": "违禁词检测",
+    "inputPlaceholder": "粘贴或输入需要检测的文案…",
+    "check": "检测文案",
+    "checking": "检测中…",
+    "clear": "清空",
+    "useCurrent": "检测当前文案",
+    "findingCount": "发现 {count} 处风险",
+    "empty": "未发现风险用词",
+    "safe": "安全",
+    "caution": "需注意",
+    "risky": "高风险",
+    "modeAI": "AI 审查",
+    "modeLexicon": "词库模式",
+    "noKeyNote": "在 .env.local 配置 DeepSeek key 后可启用 AI 语义审查。",
+    "aiUnavailableNote": "AI 语义审查不可用，当前仅展示词库检测结果。",
+    "fix": "替换",
+    "export": "导出报告",
+    "variantRisk": "变体风险",
+    "field": {
+      "headline": "标题",
+      "caption": "副文案",
+      "cta": "行动语",
+      "hashtag": "标签"
+    },
+    "kind": {
+      "legal": "法规",
+      "platform": "平台政策",
+      "claim": "无依据声称",
+      "sensitive": "受限品类",
+      "disclosure": "广告披露"
+    },
+    "exportBlockTitle": "当前设计仍有 {count} 处高风险用词。",
+    "exportBlockHint": "发布前请修复，避免下架或账号处罚。"
+  },
   "section": {
     "platform": "平台",
     "market": "市场",
@@ -115,26 +150,74 @@
     "label": "提示词"
   },
   "platforms": {
-    "tiktok": { "name": "TikTok 封面", "channel": "短视频" },
-    "instagramPost": { "name": "Instagram 帖子", "channel": "信息流" },
-    "instagramStory": { "name": "Instagram 故事", "channel": "快拍" },
-    "youtubeShorts": { "name": "YouTube Shorts", "channel": "Shorts" },
-    "pinterest": { "name": "Pinterest 图钉", "channel": "发现页" },
-    "shopee": { "name": "Shopee 商品", "channel": "电商" },
-    "etsy": { "name": "Etsy 商品", "channel": "电商" }
+    "tiktok": {
+      "name": "TikTok 封面",
+      "channel": "短视频"
+    },
+    "instagramPost": {
+      "name": "Instagram 帖子",
+      "channel": "信息流"
+    },
+    "instagramStory": {
+      "name": "Instagram 故事",
+      "channel": "快拍"
+    },
+    "youtubeShorts": {
+      "name": "YouTube Shorts",
+      "channel": "Shorts"
+    },
+    "pinterest": {
+      "name": "Pinterest 图钉",
+      "channel": "发现页"
+    },
+    "shopee": {
+      "name": "Shopee 商品",
+      "channel": "电商"
+    },
+    "etsy": {
+      "name": "Etsy 商品",
+      "channel": "电商"
+    }
   },
   "markets": {
-    "northAmerica": { "name": "北美", "tone": "简洁、直接、卖点驱动" },
-    "latinAmerica": { "name": "拉美", "tone": "温暖、活力、社交化" },
-    "japanKorea": { "name": "日韩", "tone": "柔和、精致、极简" },
-    "southeastAsia": { "name": "东南亚", "tone": "明快、热闹、划算感" },
-    "europe": { "name": "欧洲", "tone": "编辑感、克制、品质导向" }
+    "northAmerica": {
+      "name": "北美",
+      "tone": "简洁、直接、卖点驱动"
+    },
+    "latinAmerica": {
+      "name": "拉美",
+      "tone": "温暖、活力、社交化"
+    },
+    "japanKorea": {
+      "name": "日韩",
+      "tone": "柔和、精致、极简"
+    },
+    "southeastAsia": {
+      "name": "东南亚",
+      "tone": "明快、热闹、划算感"
+    },
+    "europe": {
+      "name": "欧洲",
+      "tone": "编辑感、克制、品质导向"
+    }
   },
   "goals": {
-    "awareness": { "name": "品牌曝光", "metric": "触达 / 收藏" },
-    "engagement": { "name": "社交互动", "metric": "评论 / 分享" },
-    "conversion": { "name": "销售转化", "metric": "点击 / 下单" },
-    "retention": { "name": "粉丝留存", "metric": "复购 / 忠诚度" }
+    "awareness": {
+      "name": "品牌曝光",
+      "metric": "触达 / 收藏"
+    },
+    "engagement": {
+      "name": "社交互动",
+      "metric": "评论 / 分享"
+    },
+    "conversion": {
+      "name": "销售转化",
+      "metric": "点击 / 下单"
+    },
+    "retention": {
+      "name": "粉丝留存",
+      "metric": "复购 / 忠诚度"
+    }
   },
   "personas": {
     "creator": "内容创作者",

@@ -49,6 +49,41 @@
   "copy": {
     "fallbackReason": "Offline draft from this platform's template. Add a DeepSeek key in .env.local for smarter AI copy."
   },
+  "compliance": {
+    "section": "Compliance guard",
+    "inputPlaceholder": "Paste or type the copy you want to check...",
+    "check": "Check copy",
+    "checking": "Checking...",
+    "clear": "Clear",
+    "useCurrent": "Use current copy",
+    "findingCount": "{count} issues found",
+    "empty": "No risky wording found",
+    "safe": "Safe",
+    "caution": "Needs review",
+    "risky": "High risk",
+    "modeAI": "AI review",
+    "modeLexicon": "Rule library",
+    "noKeyNote": "Add a DeepSeek key in .env.local to enable semantic review.",
+    "aiUnavailableNote": "Semantic review unavailable, showing rule library results only.",
+    "fix": "Replace",
+    "export": "Export report",
+    "variantRisk": "Variant risk",
+    "field": {
+      "headline": "Headline",
+      "caption": "Caption",
+      "cta": "CTA",
+      "hashtag": "Hashtags"
+    },
+    "kind": {
+      "legal": "Regulation",
+      "platform": "Platform policy",
+      "claim": "Unsupported claim",
+      "sensitive": "Restricted",
+      "disclosure": "Disclosure"
+    },
+    "exportBlockTitle": "This design still has {count} high-risk wording issues.",
+    "exportBlockHint": "Fix them before publishing to avoid takedowns or account strikes."
+  },
   "section": {
     "platform": "Platform",
     "market": "Market",
@@ -115,26 +150,74 @@
     "label": "Prompt"
   },
   "platforms": {
-    "tiktok": { "name": "TikTok Cover", "channel": "Short video" },
-    "instagramPost": { "name": "Instagram Post", "channel": "Feed" },
-    "instagramStory": { "name": "Instagram Story", "channel": "Story" },
-    "youtubeShorts": { "name": "YouTube Shorts", "channel": "Shorts" },
-    "pinterest": { "name": "Pinterest Pin", "channel": "Discovery" },
-    "shopee": { "name": "Shopee Product", "channel": "Commerce" },
-    "etsy": { "name": "Etsy Listing", "channel": "Commerce" }
+    "tiktok": {
+      "name": "TikTok Cover",
+      "channel": "Short video"
+    },
+    "instagramPost": {
+      "name": "Instagram Post",
+      "channel": "Feed"
+    },
+    "instagramStory": {
+      "name": "Instagram Story",
+      "channel": "Story"
+    },
+    "youtubeShorts": {
+      "name": "YouTube Shorts",
+      "channel": "Shorts"
+    },
+    "pinterest": {
+      "name": "Pinterest Pin",
+      "channel": "Discovery"
+    },
+    "shopee": {
+      "name": "Shopee Product",
+      "channel": "Commerce"
+    },
+    "etsy": {
+      "name": "Etsy Listing",
+      "channel": "Commerce"
+    }
   },
   "markets": {
-    "northAmerica": { "name": "North America", "tone": "clean, direct, benefit-driven" },
-    "latinAmerica": { "name": "Latin America", "tone": "warm, energetic, social" },
-    "japanKorea": { "name": "Japan / Korea", "tone": "soft, polished, minimal" },
-    "southeastAsia": { "name": "Southeast Asia", "tone": "bright, lively, deal-friendly" },
-    "europe": { "name": "Europe", "tone": "editorial, restrained, quality-focused" }
+    "northAmerica": {
+      "name": "North America",
+      "tone": "clean, direct, benefit-driven"
+    },
+    "latinAmerica": {
+      "name": "Latin America",
+      "tone": "warm, energetic, social"
+    },
+    "japanKorea": {
+      "name": "Japan / Korea",
+      "tone": "soft, polished, minimal"
+    },
+    "southeastAsia": {
+      "name": "Southeast Asia",
+      "tone": "bright, lively, deal-friendly"
+    },
+    "europe": {
+      "name": "Europe",
+      "tone": "editorial, restrained, quality-focused"
+    }
   },
   "goals": {
-    "awareness": { "name": "Brand awareness", "metric": "reach / saves" },
-    "engagement": { "name": "Social engagement", "metric": "comments / shares" },
-    "conversion": { "name": "Sales conversion", "metric": "clicks / orders" },
-    "retention": { "name": "Subscriber retention", "metric": "repeat use / loyalty" }
+    "awareness": {
+      "name": "Brand awareness",
+      "metric": "reach / saves"
+    },
+    "engagement": {
+      "name": "Social engagement",
+      "metric": "comments / shares"
+    },
+    "conversion": {
+      "name": "Sales conversion",
+      "metric": "clicks / orders"
+    },
+    "retention": {
+      "name": "Subscriber retention",
+      "metric": "repeat use / loyalty"
+    }
   },
   "personas": {
     "creator": "Content creator",

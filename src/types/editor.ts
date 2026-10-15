@@ -92,6 +92,46 @@ export interface CopyStrategy {
   category: string
 }
 
+export type ComplianceKind = 'legal' | 'platform' | 'claim' | 'sensitive' | 'disclosure'
+
+export type Severity = 'high' | 'medium' | 'low'
+
+export type ComplianceLevel = 'safe' | 'caution' | 'risky'
+
+/** A single flagged term inside a piece of copy. */
+export interface ComplianceFinding {
+  /** Stable id: rule id + offset, used as the v-for key. */
+  id: string
+  /** The exact text matched in the user's copy. */
+  term: string
+  kind: ComplianceKind
+  severity: Severity
+  /** Regulation or platform policy the finding is based on. */
+  basis: string
+  /** Human-readable explanation, in the UI language. */
+  reason?: string
+  /** Wording offered by the one-click fix. */
+  suggestion: string
+  /** Which layer of the engine produced it. */
+  source: 'lexicon' | 'llm'
+  /** Offsets into the original (non-normalized) copy. */
+  start: number
+  end: number
+  /** Which copy field it sits in, when scanning a generated variant. */
+  field?: 'headline' | 'caption' | 'cta' | 'hashtag'
+}
+
+export interface ComplianceReport {
+  text: string
+  /** 0-100 safety score, deducted from findings. */
+  score: number
+  level: ComplianceLevel
+  findings: ComplianceFinding[]
+  /** ai = lexical + semantic review, lexicon = rule library only. */
+  mode: 'ai' | 'lexicon'
+  note?: string
+}
+
 export interface SavedDesign {
   id: string
   title: string

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import JSZip from 'jszip'
 import { marketProfiles, platformTemplates } from '@/data/templates'
@@ -23,6 +23,13 @@ interface PreviewEntry {
 const previews = ref<PreviewEntry[]>([])
 const exporting = ref(false)
 const exportDone = ref(false)
+
+// Warn before the design leaves the studio with risky wording on it.
+const riskCount = computed(() => {
+  const index = editor.copyVariants.findIndex((variant) => variant.headline === editor.generatedCopy?.headline)
+  const report = index >= 0 ? editor.variantReports[index] : undefined
+  return report?.findings.filter((finding) => finding.severity === 'high').length ?? 0
+})
 
 const previewScale = 0.22
 
@@ -117,6 +124,11 @@ async function exportAllZip() {
       </header>
 
       <p v-if="exportDone" class="mp-done">{{ t('multi.exportDone') }}</p>
+
+      <div v-if="riskCount" class="export-blocker">
+        <strong>{{ t('compliance.exportBlockTitle', { count: riskCount }) }}</strong>
+        <small>{{ t('compliance.exportBlockHint') }}</small>
+      </div>
 
       <div class="mp-grid">
         <div v-for="entry in previews" :key="entry.platformId" class="mp-card">
