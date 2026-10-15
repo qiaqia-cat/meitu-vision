@@ -1,0 +1,169 @@
+{
+  "common": {
+    "appName": "Meitu Vision",
+    "tagline": "AI ソーシャルビジュアルローカライズ",
+    "logoFallback": "M",
+    "logout": "ログアウト",
+    "save": "保存",
+    "delete": "削除",
+    "cancel": "キャンセル",
+    "submitting": "お待ちください...",
+    "defaultError": "認証に失敗しました。",
+    "aiMode": "AI モード",
+    "offlineMode": "オフライン"
+  },
+  "auth": {
+    "loginTitle": "おかえりなさい",
+    "registerTitle": "アカウント作成",
+    "phoneLoginLabel": "携帯番号で登録 / ログイン",
+    "displayName": "ニックネーム",
+    "phoneNumber": "携帯番号",
+    "password": "パスワード",
+    "phonePlaceholder": "例: 13800138000",
+    "namePlaceholder": "例: メイツ デザイナー",
+    "customAvatar": "カスタムアバター",
+    "uploadAvatar": "アバターをアップロード",
+    "changeAvatar": "アバターを変更",
+    "login": "ログイン",
+    "register": "登録",
+    "switchToRegister": "新しいアカウントを作成",
+    "switchToLogin": "アカウントをお持ちの方はこちら"
+  },
+  "intro": {
+    "headline": "どのビジュアルも、どのプラットフォームでも自然に。",
+    "subtitle": "海外クリエイターのための Meitu Vision",
+    "enter": "ワークスペースに入る"
+  },
+  "steps": {
+    "upload": "画像をアップロード",
+    "market": "プラットフォームと市場を選択",
+    "copy": "コピーを生成",
+    "export": "書き出し"
+  },
+  "canvas": {
+    "emptyTitle": "まず商品写真をアップロード",
+    "emptyHint": "アップロードすると AI が画像を解析し、コピーを自動配置します。プラットフォームと市場は左でいつでも変更できます。",
+    "sampleHeadline": "メインコピーはここに",
+    "sampleCaption": "デザインのサブコピー"
+  },
+  "copy": {
+    "fallbackReason": "オフラインのテンプレート初稿です。.env.local に DeepSeek キーを設定すると AI コピーが使えます。"
+  },
+  "section": {
+    "platform": "プラットフォーム",
+    "market": "マーケット",
+    "commercialStrategy": "ビジネス戦略",
+    "assets": "素材",
+    "layer": "レイヤー",
+    "imageInsight": "画像インサイト",
+    "copy": "トレンドコピー",
+    "layers": "レイヤー一覧",
+    "history": "履歴"
+  },
+  "field": {
+    "goal": "ゴール",
+    "audience": "オーディエンス",
+    "category": "カテゴリー（任意）",
+    "categoryPlaceholder": "例：ペット用品、コーヒー、ガジェット…",
+    "categoryAuto": "AI 認識：",
+    "categoryHint": "空欄なら AI が画像から自動で判断します",
+    "name": "名前",
+    "text": "テキスト",
+    "color": "カラー",
+    "fontSize": "文字サイズ",
+    "opacity": "不透明度",
+    "rotation": "回転"
+  },
+  "action": {
+    "uploadImage": "画像をアップロード",
+    "generateCopy": "コピーを生成",
+    "exportPng": "PNG を書き出し",
+    "deleteLayer": "選択中のレイヤーを削除",
+    "multiExport": "全プラットフォーム"
+  },
+  "multi": {
+    "title": "マルチプラットフォーム書き出し",
+    "subtitle": "1つのデザインを全プラットフォームに自動リフロー",
+    "exportAll": "すべて書き出し (ZIP)",
+    "exportOne": "PNG をダウンロード",
+    "exporting": "書き出し中...",
+    "exportDone": "ZIP をダウンロードしました。",
+    "rendering": "プレビュー生成中...",
+    "generating": "生成中..."
+  },
+  "brand": {
+    "section": "ブランドキット",
+    "brandName": "ブランド名",
+    "apply": "デザインに適用",
+    "save": "キットを保存",
+    "logoLayerName": "ブランドロゴ"
+  },
+  "empty": {
+    "noInsight": "画像をアップロードするとビジュアルに合わせたコピーを生成します。",
+    "noCopy": "「コピーを生成」を押すとプラットフォーム別の評価付きバリアントを作ります。",
+    "noHistory": "保存されたデザインはまだありません。"
+  },
+  "insight": {
+    "mood": "ムード",
+    "subject": "被写体",
+    "visual": "ビジュアル",
+    "scene": "シーン",
+    "angles": "アピール",
+    "visionTag": "AI 視覚"
+  },
+  "prompt": {
+    "label": "プロンプト"
+  },
+  "platforms": {
+    "tiktok": { "name": "TikTok カバー", "channel": "ショート動画" },
+    "instagramPost": { "name": "Instagram ポスト", "channel": "フィード" },
+    "instagramStory": { "name": "Instagram ストーリー", "channel": "ストーリー" },
+    "youtubeShorts": { "name": "YouTube Shorts", "channel": "Shorts" },
+    "pinterest": { "name": "Pinterest ピン", "channel": "ディスカバリー" },
+    "shopee": { "name": "Shopee 商品", "channel": "コマース" },
+    "etsy": { "name": "Etsy リスティング", "channel": "コマース" }
+  },
+  "markets": {
+    "northAmerica": { "name": "北米", "tone": "クリーン・直接・ベネフィット重視" },
+    "latinAmerica": { "name": "ラテンアメリカ", "tone": "あたたかい・元気・ソーシャル" },
+    "japanKorea": { "name": "日本 / 韓国", "tone": "やわらか・上質・ミニマル" },
+    "southeastAsia": { "name": "東南アジア", "tone": "明るい・にぎやか・お得感" },
+    "europe": { "name": "ヨーロッパ", "tone": "エディトリアル・控えめ・品質重視" }
+  },
+  "goals": {
+    "awareness": { "name": "ブランド認知", "metric": "リーチ / 保存" },
+    "engagement": { "name": "エンゲージメント", "metric": "コメント / シェア" },
+    "conversion": { "name": "コンバージョン", "metric": "クリック / 注文" },
+    "retention": { "name": "リピーター育成", "metric": "継続利用 / ロイヤリティ" }
+  },
+  "personas": {
+    "creator": "コンテンツクリエイター",
+    "beautyBuyer": "美容購入者",
+    "smallSeller": "小規模セラー",
+    "student": "学生クリエイター",
+    "lifestyleUser": "ライフスタイルユーザー"
+  },
+  "categories": {
+    "beauty": "ビューティー / 自撮り",
+    "fashion": "ファッション / コーデ",
+    "food": "グルメ / カフェ",
+    "home": "ホーム / インテリア",
+    "digitalProduct": "デジタル商品",
+    "handmade": "ハンドメイド / クラフト"
+  },
+  "layer": {
+    "headline": "メインコピー",
+    "caption": "サブコピー",
+    "image": "アップロード画像",
+    "stickerName": "{text} ステッカー"
+  },
+  "lang": {
+    "label": "言語",
+    "switchTitle": "表示言語を切り替える",
+    "en": "英語",
+    "es": "スペイン語",
+    "ja": "日本語",
+    "ko": "韓国語",
+    "zh": "中国語"
+  }
+}

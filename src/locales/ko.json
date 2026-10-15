@@ -1,0 +1,169 @@
+{
+  "common": {
+    "appName": "메이투 비전",
+    "tagline": "AI 소셜 비주얼 로컬라이저",
+    "logoFallback": "M",
+    "logout": "로그아웃",
+    "save": "저장",
+    "delete": "삭제",
+    "cancel": "취소",
+    "submitting": "잠시만 기다려 주세요...",
+    "defaultError": "인증에 실패했습니다.",
+    "aiMode": "AI 모드",
+    "offlineMode": "오프라인 규칙"
+  },
+  "auth": {
+    "loginTitle": "다시 오신 걸 환영합니다",
+    "registerTitle": "계정 만들기",
+    "phoneLoginLabel": "휴대폰 가입 / 로그인",
+    "displayName": "닉네임",
+    "phoneNumber": "휴대폰 번호",
+    "password": "비밀번호",
+    "phonePlaceholder": "예: 13800138000",
+    "namePlaceholder": "예: 메이투 디자이너",
+    "customAvatar": "커스텀 아바타",
+    "uploadAvatar": "아바타 업로드",
+    "changeAvatar": "아바타 변경",
+    "login": "로그인",
+    "register": "가입",
+    "switchToRegister": "새 계정 만들기",
+    "switchToLogin": "이미 계정이 있으신가요? 로그인"
+  },
+  "intro": {
+    "headline": "모든 비주얼을 모든 플랫폼에 맞춰 자연스럽게.",
+    "subtitle": "해외 크리에이터를 위한 메이투 비전",
+    "enter": "워크스페이스로 이동"
+  },
+  "steps": {
+    "upload": "이미지 업로드",
+    "market": "플랫폼·시장 선택",
+    "copy": "카피 생성",
+    "export": "내보내기"
+  },
+  "canvas": {
+    "emptyTitle": "먼저 상품 사진을 업로드하세요",
+    "emptyHint": "업로드하면 AI가 이미지를 분석해 카피를 자동 배치합니다. 플랫폼과 시장은 왼쪽에서 언제든 바꿀 수 있어요.",
+    "sampleHeadline": "여기에 헤드라인을",
+    "sampleCaption": "디자인 보조 문구"
+  },
+  "copy": {
+    "fallbackReason": "오프라인 템플릿 초안입니다. .env.local에 DeepSeek 키를 설정하면 AI 카피를 사용할 수 있어요."
+  },
+  "section": {
+    "platform": "플랫폼",
+    "market": "마켓",
+    "commercialStrategy": "상업 전략",
+    "assets": "소스",
+    "layer": "레이어",
+    "imageInsight": "이미지 인사이트",
+    "copy": "트렌드 카피",
+    "layers": "레이어 목록",
+    "history": "히스토리"
+  },
+  "field": {
+    "goal": "목표",
+    "audience": "오디언스",
+    "category": "카테고리 (선택)",
+    "categoryPlaceholder": "예: 반려용품, 커피, 가젯…",
+    "categoryAuto": "AI 인식: ",
+    "categoryHint": "비워 두면 AI가 이미지에서 자동 판단합니다",
+    "name": "이름",
+    "text": "텍스트",
+    "color": "색상",
+    "fontSize": "글자 크기",
+    "opacity": "투명도",
+    "rotation": "회전"
+  },
+  "action": {
+    "uploadImage": "이미지 업로드",
+    "generateCopy": "카피 생성",
+    "exportPng": "PNG 내보내기",
+    "deleteLayer": "선택한 레이어 삭제",
+    "multiExport": "전체 플랫폼"
+  },
+  "multi": {
+    "title": "멀티 플랫폼 내보내기",
+    "subtitle": "하나의 디자인을 모든 플랫폼 캔버스로 자동 재배치",
+    "exportAll": "전체 내보내기 (ZIP)",
+    "exportOne": "PNG 다운로드",
+    "exporting": "내보내는 중...",
+    "exportDone": "ZIP 다운로드 완료.",
+    "rendering": "프리뷰 생성 중...",
+    "generating": "생성 중..."
+  },
+  "brand": {
+    "section": "브랜드 키트",
+    "brandName": "브랜드명",
+    "apply": "디자인에 적용",
+    "save": "키트 저장",
+    "logoLayerName": "브랜드 로고"
+  },
+  "empty": {
+    "noInsight": "이미지를 업로드하면 비주얼 기반 카피를 생성합니다.",
+    "noCopy": "「카피 생성」을 누르면 플랫폼별 점수형 변형이 만들어집니다.",
+    "noHistory": "저장된 디자인이 아직 없습니다."
+  },
+  "insight": {
+    "mood": "무드",
+    "subject": "피사체",
+    "visual": "비주얼",
+    "scene": "장면",
+    "angles": "소구 포인트",
+    "visionTag": "AI 비전"
+  },
+  "prompt": {
+    "label": "프롬프트"
+  },
+  "platforms": {
+    "tiktok": { "name": "TikTok 커버", "channel": "숏폼 영상" },
+    "instagramPost": { "name": "Instagram 포스트", "channel": "피드" },
+    "instagramStory": { "name": "Instagram 스토리", "channel": "스토리" },
+    "youtubeShorts": { "name": "YouTube Shorts", "channel": "Shorts" },
+    "pinterest": { "name": "Pinterest 핀", "channel": "디스커버리" },
+    "shopee": { "name": "Shopee 상품", "channel": "커머스" },
+    "etsy": { "name": "Etsy 리스팅", "channel": "커머스" }
+  },
+  "markets": {
+    "northAmerica": { "name": "북미", "tone": "깔끔, 직관적, 효용 중심" },
+    "latinAmerica": { "name": "라틴 아메리카", "tone": "따뜻함, 활기, 소셜" },
+    "japanKorea": { "name": "일본 / 한국", "tone": "부드러움, 정제됨, 미니멀" },
+    "southeastAsia": { "name": "동남아시아", "tone": "밝고 활기찬, 가성비" },
+    "europe": { "name": "유럽", "tone": "에디토리얼, 절제, 품질 중심" }
+  },
+  "goals": {
+    "awareness": { "name": "브랜드 인지도", "metric": "도달 / 저장" },
+    "engagement": { "name": "소셜 인게이지먼트", "metric": "댓글 / 공유" },
+    "conversion": { "name": "전환", "metric": "클릭 / 주문" },
+    "retention": { "name": "리텐션", "metric": "재방문 / 충성도" }
+  },
+  "personas": {
+    "creator": "콘텐츠 크리에이터",
+    "beautyBuyer": "뷰티 바이어",
+    "smallSeller": "소규모 셀러",
+    "student": "학생 크리에이터",
+    "lifestyleUser": "라이프스타일 유저"
+  },
+  "categories": {
+    "beauty": "뷰티 / 셀피",
+    "fashion": "패션 / 코디",
+    "food": "푸드 / 카페",
+    "home": "홈 / 인테리어",
+    "digitalProduct": "디지털 상품",
+    "handmade": "핸드메이드 / 공예"
+  },
+  "layer": {
+    "headline": "헤드라인",
+    "caption": "캡션",
+    "image": "업로드된 이미지",
+    "stickerName": "{text} 스티커"
+  },
+  "lang": {
+    "label": "언어",
+    "switchTitle": "인터페이스 언어 변경",
+    "en": "영어",
+    "es": "스페인어",
+    "ja": "일본어",
+    "ko": "한국어",
+    "zh": "중국어"
+  }
+}

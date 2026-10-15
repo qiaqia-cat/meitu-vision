@@ -1,0 +1,169 @@
+{
+  "common": {
+    "appName": "Meitu Vision",
+    "tagline": "AI social visual localization",
+    "logoFallback": "M",
+    "logout": "Log out",
+    "save": "Save",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "submitting": "Please wait...",
+    "defaultError": "Authentication failed.",
+    "aiMode": "AI mode",
+    "offlineMode": "Offline rules"
+  },
+  "auth": {
+    "loginTitle": "Welcome back",
+    "registerTitle": "Create account",
+    "phoneLoginLabel": "Phone sign in / sign up",
+    "displayName": "Display name",
+    "phoneNumber": "Phone number",
+    "password": "Password",
+    "phonePlaceholder": "e.g. 13800138000",
+    "namePlaceholder": "e.g. Meitu designer",
+    "customAvatar": "Custom avatar",
+    "uploadAvatar": "Upload avatar",
+    "changeAvatar": "Change avatar",
+    "login": "Sign in",
+    "register": "Register",
+    "switchToRegister": "Create new account",
+    "switchToLogin": "Already have an account? Sign in"
+  },
+  "intro": {
+    "headline": "Make every visual feel native to every platform.",
+    "subtitle": "Meitu Vision for overseas creators",
+    "enter": "Enter workspace"
+  },
+  "steps": {
+    "upload": "Upload image",
+    "market": "Pick platform & market",
+    "copy": "Generate copy",
+    "export": "Export"
+  },
+  "canvas": {
+    "emptyTitle": "Start by uploading a product photo",
+    "emptyHint": "AI will analyze the picture and place your copy automatically. Pick platform and market on the left — you can change them anytime.",
+    "sampleHeadline": "Your headline here",
+    "sampleCaption": "Supporting line for your design"
+  },
+  "copy": {
+    "fallbackReason": "Offline draft from this platform's template. Add a DeepSeek key in .env.local for smarter AI copy."
+  },
+  "section": {
+    "platform": "Platform",
+    "market": "Market",
+    "commercialStrategy": "Commercial Strategy",
+    "assets": "Assets",
+    "layer": "Layer",
+    "imageInsight": "Image Insight",
+    "copy": "Trend Copy Candidates",
+    "layers": "Layers",
+    "history": "History"
+  },
+  "field": {
+    "goal": "Goal",
+    "audience": "Audience",
+    "category": "Category hint (optional)",
+    "categoryPlaceholder": "e.g. pet supplies, coffee, gadgets…",
+    "categoryAuto": "AI detected: ",
+    "categoryHint": "Leave empty to let AI infer it from the image",
+    "name": "Name",
+    "text": "Text",
+    "color": "Color",
+    "fontSize": "Font size",
+    "opacity": "Opacity",
+    "rotation": "Rotation"
+  },
+  "action": {
+    "uploadImage": "Upload image",
+    "generateCopy": "Generate copy",
+    "exportPng": "Export PNG",
+    "deleteLayer": "Delete selected layer",
+    "multiExport": "All platforms"
+  },
+  "multi": {
+    "title": "Multi-platform export",
+    "subtitle": "One design, auto-reflowed to every platform canvas",
+    "exportAll": "Export all (ZIP)",
+    "exportOne": "Download PNG",
+    "exporting": "Exporting...",
+    "exportDone": "ZIP downloaded.",
+    "rendering": "Rendering previews...",
+    "generating": "Generating..."
+  },
+  "brand": {
+    "section": "Brand kit",
+    "brandName": "Brand name",
+    "apply": "Apply to design",
+    "save": "Save kit",
+    "logoLayerName": "Brand logo"
+  },
+  "empty": {
+    "noInsight": "Upload an image to generate visual-aware copy.",
+    "noCopy": "Click Generate copy to create scored platform-style variants.",
+    "noHistory": "No saved designs yet."
+  },
+  "insight": {
+    "mood": "Mood",
+    "subject": "Subject",
+    "visual": "Visual",
+    "scene": "Scene",
+    "angles": "Angles",
+    "visionTag": "AI vision"
+  },
+  "prompt": {
+    "label": "Prompt"
+  },
+  "platforms": {
+    "tiktok": { "name": "TikTok Cover", "channel": "Short video" },
+    "instagramPost": { "name": "Instagram Post", "channel": "Feed" },
+    "instagramStory": { "name": "Instagram Story", "channel": "Story" },
+    "youtubeShorts": { "name": "YouTube Shorts", "channel": "Shorts" },
+    "pinterest": { "name": "Pinterest Pin", "channel": "Discovery" },
+    "shopee": { "name": "Shopee Product", "channel": "Commerce" },
+    "etsy": { "name": "Etsy Listing", "channel": "Commerce" }
+  },
+  "markets": {
+    "northAmerica": { "name": "North America", "tone": "clean, direct, benefit-driven" },
+    "latinAmerica": { "name": "Latin America", "tone": "warm, energetic, social" },
+    "japanKorea": { "name": "Japan / Korea", "tone": "soft, polished, minimal" },
+    "southeastAsia": { "name": "Southeast Asia", "tone": "bright, lively, deal-friendly" },
+    "europe": { "name": "Europe", "tone": "editorial, restrained, quality-focused" }
+  },
+  "goals": {
+    "awareness": { "name": "Brand awareness", "metric": "reach / saves" },
+    "engagement": { "name": "Social engagement", "metric": "comments / shares" },
+    "conversion": { "name": "Sales conversion", "metric": "clicks / orders" },
+    "retention": { "name": "Subscriber retention", "metric": "repeat use / loyalty" }
+  },
+  "personas": {
+    "creator": "Content creator",
+    "beautyBuyer": "Beauty buyer",
+    "smallSeller": "Small seller",
+    "student": "Student creator",
+    "lifestyleUser": "Lifestyle user"
+  },
+  "categories": {
+    "beauty": "Beauty / selfie",
+    "fashion": "Fashion / outfit",
+    "food": "Food / cafe",
+    "home": "Home / decor",
+    "digitalProduct": "Digital product",
+    "handmade": "Handmade / craft"
+  },
+  "layer": {
+    "headline": "Headline",
+    "caption": "Caption",
+    "image": "Uploaded image",
+    "stickerName": "{text} sticker"
+  },
+  "lang": {
+    "label": "Language",
+    "switchTitle": "Switch interface language",
+    "en": "English",
+    "es": "Español",
+    "ja": "Japanese",
+    "ko": "Korean",
+    "zh": "Chinese"
+  }
+}

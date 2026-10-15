@@ -1,0 +1,169 @@
+{
+  "common": {
+    "appName": "美图视觉",
+    "tagline": "AI 社交视觉本地化器",
+    "logoFallback": "美",
+    "logout": "退出登录",
+    "save": "保存",
+    "delete": "删除",
+    "cancel": "取消",
+    "submitting": "请稍候...",
+    "defaultError": "操作失败，请重试。",
+    "aiMode": "AI 模式",
+    "offlineMode": "离线规则"
+  },
+  "auth": {
+    "loginTitle": "欢迎回来",
+    "registerTitle": "创建账号",
+    "phoneLoginLabel": "手机号注册登录",
+    "displayName": "昵称",
+    "phoneNumber": "手机号",
+    "password": "密码",
+    "phonePlaceholder": "例如：13800138000",
+    "namePlaceholder": "例如：美图设计师",
+    "customAvatar": "自定义头像",
+    "uploadAvatar": "上传头像",
+    "changeAvatar": "更换头像",
+    "login": "登录",
+    "register": "注册",
+    "switchToRegister": "注册新账号",
+    "switchToLogin": "已有账号，去登录"
+  },
+  "intro": {
+    "headline": "让每一张图都贴合每个平台。",
+    "subtitle": "美图视觉 · 出海创作者专属",
+    "enter": "进入工作区"
+  },
+  "steps": {
+    "upload": "上传图片",
+    "market": "选平台与市场",
+    "copy": "生成文案",
+    "export": "导出成品"
+  },
+  "canvas": {
+    "emptyTitle": "先上传一张商品图",
+    "emptyHint": "上传后 AI 会分析画面并自动排布文案；左侧可切换平台和市场，随时可改。",
+    "sampleHeadline": "你的主标题写在这里",
+    "sampleCaption": "副标题说明文字"
+  },
+  "copy": {
+    "fallbackReason": "离线初稿（按平台模板生成）。在 .env.local 配置 DeepSeek key 后可获得更聪明的 AI 文案。"
+  },
+  "section": {
+    "platform": "平台",
+    "market": "市场",
+    "commercialStrategy": "商业策略",
+    "assets": "素材",
+    "layer": "图层",
+    "imageInsight": "图片洞察",
+    "copy": "热门文案候选",
+    "layers": "图层列表",
+    "history": "历史记录"
+  },
+  "field": {
+    "goal": "目标",
+    "audience": "受众",
+    "category": "品类提示（可选）",
+    "categoryPlaceholder": "如：宠物用品、咖啡、数码…",
+    "categoryAuto": "AI 已识别：",
+    "categoryHint": "留空则由 AI 根据图片自动判断",
+    "name": "名称",
+    "text": "文字",
+    "color": "颜色",
+    "fontSize": "字号",
+    "opacity": "透明度",
+    "rotation": "旋转"
+  },
+  "action": {
+    "uploadImage": "上传图片",
+    "generateCopy": "生成文案",
+    "exportPng": "导出 PNG",
+    "deleteLayer": "删除当前图层",
+    "multiExport": "多平台导出"
+  },
+  "multi": {
+    "title": "多平台导出",
+    "subtitle": "一份设计，自动重排到所有平台画布",
+    "exportAll": "导出全部 (ZIP)",
+    "exportOne": "下载 PNG",
+    "exporting": "导出中...",
+    "exportDone": "ZIP 已下载。",
+    "rendering": "正在生成预览...",
+    "generating": "生成中..."
+  },
+  "brand": {
+    "section": "品牌套件",
+    "brandName": "品牌名",
+    "apply": "应用到设计",
+    "save": "保存套件",
+    "logoLayerName": "品牌标识"
+  },
+  "empty": {
+    "noInsight": "上传一张图片以生成视觉相关文案。",
+    "noCopy": "点击「生成文案」创建带评分的平台风格变体。",
+    "noHistory": "还没有保存的设计。"
+  },
+  "insight": {
+    "mood": "氛围",
+    "subject": "主体",
+    "visual": "视觉",
+    "scene": "场景",
+    "angles": "卖点",
+    "visionTag": "AI 视觉"
+  },
+  "prompt": {
+    "label": "提示词"
+  },
+  "platforms": {
+    "tiktok": { "name": "TikTok 封面", "channel": "短视频" },
+    "instagramPost": { "name": "Instagram 帖子", "channel": "信息流" },
+    "instagramStory": { "name": "Instagram 故事", "channel": "快拍" },
+    "youtubeShorts": { "name": "YouTube Shorts", "channel": "Shorts" },
+    "pinterest": { "name": "Pinterest 图钉", "channel": "发现页" },
+    "shopee": { "name": "Shopee 商品", "channel": "电商" },
+    "etsy": { "name": "Etsy 商品", "channel": "电商" }
+  },
+  "markets": {
+    "northAmerica": { "name": "北美", "tone": "简洁、直接、卖点驱动" },
+    "latinAmerica": { "name": "拉美", "tone": "温暖、活力、社交化" },
+    "japanKorea": { "name": "日韩", "tone": "柔和、精致、极简" },
+    "southeastAsia": { "name": "东南亚", "tone": "明快、热闹、划算感" },
+    "europe": { "name": "欧洲", "tone": "编辑感、克制、品质导向" }
+  },
+  "goals": {
+    "awareness": { "name": "品牌曝光", "metric": "触达 / 收藏" },
+    "engagement": { "name": "社交互动", "metric": "评论 / 分享" },
+    "conversion": { "name": "销售转化", "metric": "点击 / 下单" },
+    "retention": { "name": "粉丝留存", "metric": "复购 / 忠诚度" }
+  },
+  "personas": {
+    "creator": "内容创作者",
+    "beautyBuyer": "美妆买家",
+    "smallSeller": "小型卖家",
+    "student": "学生创作者",
+    "lifestyleUser": "生活方式用户"
+  },
+  "categories": {
+    "beauty": "美妆 / 自拍",
+    "fashion": "穿搭 / 时尚",
+    "food": "美食 / 咖啡",
+    "home": "家居 / 装饰",
+    "digitalProduct": "数字产品",
+    "handmade": "手作 / 工艺"
+  },
+  "layer": {
+    "headline": "主标题",
+    "caption": "副标题",
+    "image": "已上传图片",
+    "stickerName": "{text} 贴纸"
+  },
+  "lang": {
+    "label": "语言",
+    "switchTitle": "切换界面语言",
+    "en": "English",
+    "es": "Español",
+    "ja": "日本語",
+    "ko": "한국어",
+    "zh": "中文"
+  }
+}

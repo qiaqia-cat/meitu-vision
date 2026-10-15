@@ -1,0 +1,169 @@
+{
+  "common": {
+    "appName": "Meitu Vision",
+    "tagline": "Localizador visual con IA para redes sociales",
+    "logoFallback": "M",
+    "logout": "Cerrar sesión",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "cancel": "Cancelar",
+    "submitting": "Espera por favor...",
+    "defaultError": "La autenticación falló.",
+    "aiMode": "Modo IA",
+    "offlineMode": "Reglas sin conexión"
+  },
+  "auth": {
+    "loginTitle": "Bienvenido de nuevo",
+    "registerTitle": "Crear cuenta",
+    "phoneLoginLabel": "Registro e inicio con teléfono",
+    "displayName": "Nombre",
+    "phoneNumber": "Número de teléfono",
+    "password": "Contraseña",
+    "phonePlaceholder": "ej. 13800138000",
+    "namePlaceholder": "ej. Diseñador Meitu",
+    "customAvatar": "Avatar personalizado",
+    "uploadAvatar": "Subir avatar",
+    "changeAvatar": "Cambiar avatar",
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "switchToRegister": "Crear cuenta nueva",
+    "switchToLogin": "¿Ya tienes cuenta? Inicia sesión"
+  },
+  "intro": {
+    "headline": "Haz que cada visual se sienta nativo en cada plataforma.",
+    "subtitle": "Meitu Vision para creadores internacionales",
+    "enter": "Entrar al espacio de trabajo"
+  },
+  "steps": {
+    "upload": "Subir imagen",
+    "market": "Elegir plataforma y mercado",
+    "copy": "Generar copy",
+    "export": "Exportar"
+  },
+  "canvas": {
+    "emptyTitle": "Empieza subiendo una foto de producto",
+    "emptyHint": "La IA analizará la imagen y colocará tu copy automáticamente. Elige plataforma y mercado a la izquierda; puedes cambiarlos cuando quieras.",
+    "sampleHeadline": "Tu titular aquí",
+    "sampleCaption": "Línea de apoyo para tu diseño"
+  },
+  "copy": {
+    "fallbackReason": "Borrador sin conexión con la plantilla de la plataforma. Añade una clave de DeepSeek en .env.local para copy con IA."
+  },
+  "section": {
+    "platform": "Plataforma",
+    "market": "Mercado",
+    "commercialStrategy": "Estrategia comercial",
+    "assets": "Recursos",
+    "layer": "Capa",
+    "imageInsight": "Análisis de imagen",
+    "copy": "Copys de tendencia",
+    "layers": "Capas",
+    "history": "Historial"
+  },
+  "field": {
+    "goal": "Objetivo",
+    "audience": "Audiencia",
+    "category": "Categoría (opcional)",
+    "categoryPlaceholder": "p. ej. mascotas, café, gadgets…",
+    "categoryAuto": "IA detectó: ",
+    "categoryHint": "Déjalo vacío y la IA lo deduce de la imagen",
+    "name": "Nombre",
+    "text": "Texto",
+    "color": "Color",
+    "fontSize": "Tamaño",
+    "opacity": "Opacidad",
+    "rotation": "Rotación"
+  },
+  "action": {
+    "uploadImage": "Subir imagen",
+    "generateCopy": "Generar copy",
+    "exportPng": "Exportar PNG",
+    "deleteLayer": "Eliminar capa seleccionada",
+    "multiExport": "Todas las plataformas"
+  },
+  "multi": {
+    "title": "Exportación multiplataforma",
+    "subtitle": "Un diseño, adaptado automáticamente a cada lienzo",
+    "exportAll": "Exportar todo (ZIP)",
+    "exportOne": "Descargar PNG",
+    "exporting": "Exportando...",
+    "exportDone": "ZIP descargado.",
+    "rendering": "Generando vistas previas...",
+    "generating": "Generando..."
+  },
+  "brand": {
+    "section": "Kit de marca",
+    "brandName": "Nombre de marca",
+    "apply": "Aplicar al diseño",
+    "save": "Guardar kit",
+    "logoLayerName": "Logotipo de marca"
+  },
+  "empty": {
+    "noInsight": "Sube una imagen para generar copys según el visual.",
+    "noCopy": "Pulsa Generar copy para crear variantes con puntuación por plataforma.",
+    "noHistory": "Aún no hay diseños guardados."
+  },
+  "insight": {
+    "mood": "Estilo",
+    "subject": "Sujeto",
+    "visual": "Visual",
+    "scene": "Escena",
+    "angles": "Ángulos",
+    "visionTag": "Visión IA"
+  },
+  "prompt": {
+    "label": "Prompt"
+  },
+  "platforms": {
+    "tiktok": { "name": "Portada TikTok", "channel": "Video corto" },
+    "instagramPost": { "name": "Post de Instagram", "channel": "Feed" },
+    "instagramStory": { "name": "Story de Instagram", "channel": "Story" },
+    "youtubeShorts": { "name": "YouTube Shorts", "channel": "Shorts" },
+    "pinterest": { "name": "Pin de Pinterest", "channel": "Descubrir" },
+    "shopee": { "name": "Producto Shopee", "channel": "Comercio" },
+    "etsy": { "name": "Listado Etsy", "channel": "Comercio" }
+  },
+  "markets": {
+    "northAmerica": { "name": "Norteamérica", "tone": "claro, directo, orientado al beneficio" },
+    "latinAmerica": { "name": "Latinoamérica", "tone": "cálido, enérgico, social" },
+    "japanKorea": { "name": "Japón / Corea", "tone": "suave, pulido, minimalista" },
+    "southeastAsia": { "name": "Sudeste asiático", "tone": "brillante, animado, de oferta" },
+    "europe": { "name": "Europa", "tone": "editorial, contenido, enfocado a calidad" }
+  },
+  "goals": {
+    "awareness": { "name": "Reconocimiento", "metric": "alcance / guardados" },
+    "engagement": { "name": "Engagement", "metric": "comentarios / compartidos" },
+    "conversion": { "name": "Conversión", "metric": "clics / pedidos" },
+    "retention": { "name": "Retención", "metric": "uso recurrente / lealtad" }
+  },
+  "personas": {
+    "creator": "Creador de contenido",
+    "beautyBuyer": "Comprador de belleza",
+    "smallSeller": "Pequeño vendedor",
+    "student": "Creador estudiante",
+    "lifestyleUser": "Usuario lifestyle"
+  },
+  "categories": {
+    "beauty": "Belleza / selfie",
+    "fashion": "Moda / outfit",
+    "food": "Comida / café",
+    "home": "Hogar / deco",
+    "digitalProduct": "Producto digital",
+    "handmade": "Hecho a mano"
+  },
+  "layer": {
+    "headline": "Titular",
+    "caption": "Subtítulo",
+    "image": "Imagen subida",
+    "stickerName": "Sticker {text}"
+  },
+  "lang": {
+    "label": "Idioma",
+    "switchTitle": "Cambiar idioma de la interfaz",
+    "en": "Inglés",
+    "es": "Español",
+    "ja": "Japonés",
+    "ko": "Coreano",
+    "zh": "Chino"
+  }
+}
