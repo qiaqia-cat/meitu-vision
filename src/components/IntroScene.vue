@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import * as THREE from 'three'
 
@@ -7,7 +7,7 @@ const emit = defineEmits<{
   enter: []
 }>()
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 const headlineRef = ref<HTMLElement | null>(null)
@@ -15,8 +15,44 @@ let renderer: THREE.WebGLRenderer | null = null
 let scene: THREE.Scene | null = null
 let camera: THREE.PerspectiveCamera | null = null
 let animationId = 0
+let headlineObserver: ResizeObserver | null = null
 const cards: THREE.Mesh[] = []
 const platforms = ['TikTok', 'Instagram Post', 'Instagram Story', 'YouTube Shorts', 'Pinterest', 'Shopee', 'Etsy']
+
+const HEADLINE_MIN_FONT = 24
+
+/**
+ * Keep the landing headline on one line in every locale: measure the real
+ * text width (the centered overflow makes scrollWidth useless here), scale
+ * the font down to fit, and fall back to balanced wrapping if even the
+ * minimum size cannot fit.
+ */
+function fitHeadline() {
+  const el = headlineRef.value
+  if (!el) return
+  el.style.fontSize = ''
+  el.style.whiteSpace = 'nowrap'
+  el.style.removeProperty('text-wrap')
+  const base = parseFloat(getComputedStyle(el).fontSize)
+  const avail = el.clientWidth
+  if (!avail) return
+  el.style.width = 'max-content'
+  let textW = el.getBoundingClientRect().width
+  if (textW > avail + 1) {
+    let size = Math.max(HEADLINE_MIN_FONT, Math.floor(base * (avail / textW)))
+    el.style.fontSize = `${size}px`
+    while (el.getBoundingClientRect().width > avail + 1 && size > HEADLINE_MIN_FONT) {
+      size -= 1
+      el.style.fontSize = `${size}px`
+    }
+    textW = el.getBoundingClientRect().width
+  }
+  el.style.width = ''
+  if (textW > avail + 1) {
+    el.style.whiteSpace = 'normal'
+    el.style.setProperty('text-wrap', 'balance')
+  }
+}
 
 function createTextTexture(title: string, subtitle = 'localized visual') {
   const canvas = document.createElement('canvas')
@@ -129,6 +165,7 @@ function resize() {
   renderer.setSize(width, height, false)
   camera.aspect = width / height
   camera.updateProjectionMatrix()
+  fitHeadline()
 }
 
 function initScene() {
@@ -236,14 +273,29 @@ function animate() {
 
 onMounted(() => {
   initScene()
+  fitHeadline()
   window.addEventListener('resize', resize)
   window.addEventListener('mousemove', updateHeadlineGlow)
+  // webfont metrics differ from the fallback, refit once fonts are ready
+  if (document.fonts?.ready) {
+    void document.fonts.ready.then(fitHeadline)
+  }
+  headlineObserver = new ResizeObserver(fitHeadline)
+  if (headlineRef.value) {
+    headlineObserver.observe(headlineRef.value)
+  }
+})
+
+watch(locale, () => {
+  void nextTick(fitHeadline)
 })
 
 onBeforeUnmount(() => {
   cancelAnimationFrame(animationId)
   window.removeEventListener('resize', resize)
   window.removeEventListener('mousemove', updateHeadlineGlow)
+  headlineObserver?.disconnect()
+  headlineObserver = null
   renderer?.dispose()
   cards.splice(0, cards.length)
 })

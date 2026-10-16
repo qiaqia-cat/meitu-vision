@@ -1052,9 +1052,9 @@ button {
   white-space: nowrap;
   text-align: center;
   color: var(--text);
-  font-size: clamp(34px, 6vw, 84px);
+  font-size: clamp(30px, 5vw, 72px);
   font-weight: 800;
-  line-height: 0.95;
+  line-height: 1.08;
   letter-spacing: -0.02em;
   pointer-events: none;
 }
