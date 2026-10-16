@@ -130,7 +130,3 @@ npm run dev
 ```
 
 Then open http://localhost:5173. The `/llm` and `/vision` routes are dev-proxy only — a static build served without that proxy will always take the offline path.
-
-## License
-
-MIT — see [LICENSE](./LICENSE).
