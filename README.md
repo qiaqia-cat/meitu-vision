@@ -1,5 +1,7 @@
 # 美图视觉
 
+[简体中文说明](./README.zh-CN.md) · [项目技术说明](./PROJECT_NOTES.md)
+
 美图视觉 is an AI social growth workspace for overseas creators and cross-border sellers. It turns one uploaded image into platform-aware visual drafts and scored copy candidates for TikTok, Instagram, YouTube Shorts, Pinterest, Shopee, and Etsy. Copy is written by DeepSeek, and the image is understood by Zhipu GLM-4V.
 
 <p align="center">
