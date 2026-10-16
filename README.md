@@ -2,37 +2,69 @@
 
 美图视觉 is an AI social growth workspace for overseas creators and cross-border sellers. It turns one uploaded image into platform-aware visual drafts and scored copy candidates for TikTok, Instagram, YouTube Shorts, Pinterest, Shopee, and Etsy. Copy is written by DeepSeek, and the image is understood by Zhipu GLM-4V.
 
+<p align="center">
+  <img src="docs/screenshots/01-intro.png" width="720" alt="three.js intro scene" />
+</p>
+
 ## Stack
+
+**Frontend**
 
 - Vue3
 - TypeScript
 - Vite
 - Pinia
-- Canvas
-- IndexedDB
-- vue-i18n
-- DeepSeek `deepseek-chat` (copy generation, JSON mode)
-- Zhipu GLM-4V `glm-4v-flash` (multimodal image understanding)
+- Canvas 2D — layer compositing, safe zones, PNG export
+- three.js — WebGL intro scene
+- vue-i18n — 5 UI locales
+- IndexedDB — design history and brand kit
+- jszip — multi-platform batch export
+
+**Models**
+
+- DeepSeek `deepseek-chat` — copy generation in JSON mode
+- Zhipu `glm-4v-flash` — multimodal image understanding
+
+<p align="center">
+  <img src="docs/screenshots/02-editor.png" width="720" alt="workspace with AI-generated copy" />
+</p>
 
 ## Features
 
+**Image & canvas**
+
 - Upload an image and crop it into the selected platform canvas
-- Analyze uploaded image brightness, color temperature, orientation, and dominant color
+- Analyze brightness, colour temperature, orientation and dominant colour
+- Detect visual quiet zones so text placement avoids the subject
 - Switch between overseas social and commerce templates
-- Choose commercial goals, audience personas, and type a free-text product category (left empty for the AI to infer it from the image)
-- Generate scored copy candidates with DeepSeek, grounded in image understanding, market insight, and platform playbooks
-- Edit text and sticker layers by dragging on the canvas
-- Generate image-aware copy that follows TikTok, Instagram, YouTube Shorts, Pinterest, Shopee, and Etsy content styles
 - Display platform safe zones for social UI overlays
-- Save reusable designs to IndexedDB
+- Edit text and sticker layers by dragging on the canvas
 - Export the current visual as PNG
+
+**Copy & compliance**
+
+- Choose commercial goals, audience personas, and type a free-text product category (left empty for the AI to infer it from the image)
+- Generate scored copy candidates with DeepSeek, grounded in image understanding, market insight and platform playbooks
+- Screen the copy for risky wording with the two-layer compliance guard
+- Rewrite flagged terms in one click and re-scan the result
+
+**Multi-platform**
+
+- Reflow one design into TikTok, Instagram, YouTube Shorts, Pinterest, Shopee and Etsy canvases
+- Batch-export every reflowed version as a single ZIP
+
+**Workspace**
+
+- Save designs and brand kits to IndexedDB and reopen them for editing
+- Switch the interface between English, 简体中文, Español, 日本語 and 한국어
+- Sign up with a mobile number and set a custom avatar
 
 ## AI Layer
 
 Copy generation is driven by real large models, not canned templates.
 
 - **Text model — DeepSeek `deepseek-chat`.** Called in JSON mode (`response_format: json_object`) with `temperature: 0.8`, so the response is a strict JSON contract instead of free text that has to be scraped.
-- **Vision model — Zhipu `glm-4v-flash` (GLM-4V).** Reads the uploaded image and returns subject / scene / mood / product type / selling points / SEO keywords, which then become the source of truth for the copy.
+- **Vision model — Zhipu `glm-4v-flash`.** Reads the uploaded image and returns subject / scene / mood / product type / selling points / SEO keywords, which then become the source of truth for the copy.
 - **Prompt engineering.** `src/utils/prompt.ts` assembles a layered system + user brief:
   1. role prompt — senior overseas social-commerce copywriter, strict-JSON output contract;
   2. design brief — platform canvas + safe zones, market cultural tone, business goal, audience persona, product category;
@@ -43,6 +75,10 @@ Copy generation is driven by real large models, not canned templates.
 - **Key safety.** API keys are injected only by the Vite dev proxy (`/llm`, `/vision`) and never reach the browser bundle or the repository.
 
 ## Compliance guard
+
+<p align="center">
+  <img src="docs/screenshots/03-compliance.png" width="720" alt="two-layer compliance check" />
+</p>
 
 Copy is screened for risky wording before it can leave the studio.
 
@@ -108,10 +144,17 @@ Every screen carries an "AI mode" or "Offline rules" badge, so which path is liv
 
 ## Resume Version
 
-美图视觉: AI overseas social visual localization workspace
+A paste-ready summary for the project section of a resume — same scope as the Features list above, written for one-line-per-bullet reading.
 
-Built a Vue3 + TypeScript overseas social growth workspace for creators and cross-border sellers. Implemented image upload, lightweight visual analysis, commercial strategy selection, free-text product category with AI inference, market/platform copy playbooks, scored copy variants, multi-platform canvas templates, draggable text/sticker layers, IndexedDB history, mobile registration, custom avatars, and PNG export.
+**美图视觉 — AI overseas social visual localization workspace**
 
-Integrated real LLM capability: DeepSeek `deepseek-chat` for platform-native copy generation in JSON mode, and Zhipu GLM-4V for multimodal image understanding feeding the copy brief. Designed a layered prompt system (role prompt + design brief + image insight + platform/market playbook injection + strict JSON output contract with length limits and self-scored confidence), plus a fallback rule engine and error taxonomy so the UI degrades gracefully without keys or on timeout. API keys stay in the dev proxy and never enter the bundle.
+Built a Vue3 + TypeScript + Vite workspace for overseas creators and cross-border sellers that turns one uploaded image into platform-ready visual drafts and scored, market-native copy.
 
-Built a two-layer compliance guard for risky wording: an offline regex rule library (China Advertising Law, FTC / EU 655-2013, Japan 薬機法, and per-platform bans) that runs with zero latency and no key, plus a DeepSeek semantic review that catches implied efficacy and unsubstantiated promises, with result merging, per-copy caching and context-based false-positive control. Findings carry offsets for inline highlighting, one-click replacement that rewrites the copy and canvas layer, an export gate, and downloadable reports. The project focuses on global content production and conversion-oriented localization rather than basic image beautification.
+- **Core engineering.** Implemented image upload and heuristic visual analysis (brightness, colour temperature, orientation, dominant colour, quiet-zone detection for text placement), six platform canvas templates with safe-zone overlays, draggable text/sticker layers composited on Canvas 2D, PNG export, IndexedDB persistence for design history and brand kits, a five-locale i18n interface (EN / 中文 / ES / JA / KO), and account sign-up with custom avatars.
+- **Multi-platform production.** Built a reflow engine that re-lays out one design across six platform aspect ratios while preserving layer semantics, with batch export of every variant as a ZIP.
+- **LLM integration.** Integrated DeepSeek `deepseek-chat` for copy generation in JSON mode, and Zhipu GLM-4V for multimodal image understanding feeding the copy brief. Designed a layered prompt system (role prompt → design brief → image insight → platform/market playbook injection → strict JSON output contract with length limits and self-scored confidence), plus a fallback rule engine and error taxonomy so the UI degrades gracefully without keys or on timeout. API keys are injected only by the dev proxy and never enter the bundle or the repository.
+- **Compliance guard.** Built a two-layer risk check for advertising wording: an offline regex rule library (China Advertising Law, FTC / EU 655/2013, Japan 薬機法, per-platform bans) that runs with zero latency and no key, plus a DeepSeek semantic review catching implied efficacy and unsubstantiated promises. Added result merging, per-copy caching, context-based false-positive control, offset-based inline highlighting, one-click replacement that rewrites both copy and canvas layer, an export gate, and downloadable reports.
+
+## License
+
+MIT — see [LICENSE](./LICENSE).
