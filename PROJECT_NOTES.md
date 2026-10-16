@@ -40,3 +40,27 @@
 - 匹配层做归一化（大小写、全角半角）与上下文豁免（「第一天 / 第一次」不判绝对化），并按市场、平台裁剪规则集，避免误伤
 - 结果合并去重，命中项带偏移量，支持行内高亮与定点替换；模型不可用时降级为词库模式，检测与导出不中断
 - 根据不同平台比例动态调整画布尺寸和安全区
+
+## 密钥与安全说明
+
+出于安全考虑，本项目的 `DEEPSEEK_API_KEY` 未随仓库提交，`ZHIPU_API_KEY` 同样未提交。
+
+- 密钥保存在本地 `.env.local`，已被 `.gitignore` 排除，不会进入版本库历史
+- 请求由 Vite dev proxy（`/llm`、`/vision`）在服务端注入 `Authorization` 请求头，密钥不出现在前端代码或打包产物中
+- 未配置密钥时：文案生成回退到本地规则引擎，图像理解回退到本地特征提取，违禁词检测保留词库层并跳过语义层 —— 页面不白屏，功能不中断
+
+如需启用完整 AI 能力，将 `.env.local.example` 复制为 `.env.local` 并填入自己的密钥，重启 dev server 即可。
+
+## 本地运行
+
+前置要求：Node.js `^20.19.0 || >=22.12.0`（Vite 7 的硬性要求）、npm 10 及以上
+
+```bash
+npm ci
+cp .env.local.example .env.local
+npm run dev
+```
+
+Windows 下使用 `copy .env.local.example .env.local` 代替 `cp`。随后打开 http://localhost:5173。
+
+> `/llm` 与 `/vision` 依赖 Vite **开发服务器**的代理能力。静态构建产物若直接部署（如 GitHub Pages），AI 能力将走离线降级路径。

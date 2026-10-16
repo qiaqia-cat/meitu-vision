@@ -53,12 +53,58 @@ Copy is screened for risky wording before it can leave the studio.
 - **Export gate.** Opening multi-platform export reports how many high-risk terms remain before anything is rendered.
 - **Report export.** Download a TXT compliance report for the checked copy.
 
+## Security note
+
+For security reasons, no API keys are committed to this repository — `DEEPSEEK_API_KEY` is intentionally excluded, and so is `ZHIPU_API_KEY`.
+
+Keys live in a local, git-ignored `.env.local` and are injected only by the Vite dev proxy, so they never enter the browser bundle, the build output, or git history. To run the AI path, copy `.env.local.example` to `.env.local` and drop in your own key. **The project runs fine without them** — it just falls back to its local rule engine instead of calling a model.
+
 ## Run Locally
 
+**Prerequisites**
+
+- Node.js `^20.19.0 || >=22.12.0` — required by Vite 7
+- npm 10 or newer
+
+**1 · Install dependencies**
+
 ```bash
-npm install
+npm ci
+```
+
+**2 · Configure keys (optional)**
+
+```bash
+cp .env.local.example .env.local
+```
+
+On Windows: `copy .env.local.example .env.local`. Then edit the file:
+
+```bash
+DEEPSEEK_API_KEY=sk-your-own-key
+ZHIPU_API_KEY=your-own-key
+```
+
+> Vite reads `.env.local` only at startup, so **restart `npm run dev`** after editing it.
+
+**3 · Start the dev server**
+
+```bash
 npm run dev
 ```
+
+Then open http://localhost:5173. The `/llm` and `/vision` routes are dev-proxy only — a static build served without that proxy will always take the offline path.
+
+**With keys vs. without**
+
+| Path | With keys | Without keys |
+|---|---|---|
+| Copy generation | DeepSeek `deepseek-chat` | Local rule engine |
+| Image understanding | GLM-4V | Local heuristic analysis |
+| Compliance · Layer 1 | Lexicon scan | Lexicon scan (identical) |
+| Compliance · Layer 2 | DeepSeek semantic review | Skipped |
+
+Every screen carries an "AI mode" or "Offline rules" badge, so which path is live is never a guess.
 
 ## Resume Version
 
