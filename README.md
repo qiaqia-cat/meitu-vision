@@ -131,30 +131,6 @@ npm run dev
 
 Then open http://localhost:5173. The `/llm` and `/vision` routes are dev-proxy only — a static build served without that proxy will always take the offline path.
 
-**With keys vs. without**
-
-| Path | With keys | Without keys |
-|---|---|---|
-| Copy generation | DeepSeek `deepseek-chat` | Local rule engine |
-| Image understanding | GLM-4V | Local heuristic analysis |
-| Compliance · Layer 1 | Lexicon scan | Lexicon scan (identical) |
-| Compliance · Layer 2 | DeepSeek semantic review | Skipped |
-
-Every screen carries an "AI mode" or "Offline rules" badge, so which path is live is never a guess.
-
-## Resume Version
-
-A paste-ready summary for the project section of a resume — same scope as the Features list above, written for one-line-per-bullet reading.
-
-**美图视觉 — AI overseas social visual localization workspace**
-
-Built a Vue3 + TypeScript + Vite workspace for overseas creators and cross-border sellers that turns one uploaded image into platform-ready visual drafts and scored, market-native copy.
-
-- **Core engineering.** Implemented image upload and heuristic visual analysis (brightness, colour temperature, orientation, dominant colour, quiet-zone detection for text placement), six platform canvas templates with safe-zone overlays, draggable text/sticker layers composited on Canvas 2D, PNG export, IndexedDB persistence for design history and brand kits, a five-locale i18n interface (EN / 中文 / ES / JA / KO), and account sign-up with custom avatars.
-- **Multi-platform production.** Built a reflow engine that re-lays out one design across six platform aspect ratios while preserving layer semantics, with batch export of every variant as a ZIP.
-- **LLM integration.** Integrated DeepSeek `deepseek-chat` for copy generation in JSON mode, and Zhipu GLM-4V for multimodal image understanding feeding the copy brief. Designed a layered prompt system (role prompt → design brief → image insight → platform/market playbook injection → strict JSON output contract with length limits and self-scored confidence), plus a fallback rule engine and error taxonomy so the UI degrades gracefully without keys or on timeout. API keys are injected only by the dev proxy and never enter the bundle or the repository.
-- **Compliance guard.** Built a two-layer risk check for advertising wording: an offline regex rule library (China Advertising Law, FTC / EU 655/2013, Japan 薬機法, per-platform bans) that runs with zero latency and no key, plus a DeepSeek semantic review catching implied efficacy and unsubstantiated promises. Added result merging, per-copy caching, context-based false-positive control, offset-based inline highlighting, one-click replacement that rewrites both copy and canvas layer, an export gate, and downloadable reports.
-
 ## License
 
 MIT — see [LICENSE](./LICENSE).
